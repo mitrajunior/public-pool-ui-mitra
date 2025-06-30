@@ -14,6 +14,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { SplashComponent } from './components/splash/splash.component';
 import { UserAgentLinkComponent } from './components/user-agent-link/user-agent-link.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth.interceptor';
 import { WorkerGroupComponent } from './components/worker-group/worker-group.component';
 import { WorkerComponent } from './components/worker/worker.component';
 import { AppLayoutModule } from './layout/app.layout.module';
@@ -36,7 +39,8 @@ import { AverageTimeToBlockPipe } from './pipes/average-time-to-block.pipe';
     BackgroundParticlesComponent,
     HashSuffixPipe,
     SettingsComponent,
-    UserAgentLinkComponent
+    UserAgentLinkComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,
@@ -50,6 +54,7 @@ import { AverageTimeToBlockPipe } from './pipes/average-time-to-block.pipe';
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

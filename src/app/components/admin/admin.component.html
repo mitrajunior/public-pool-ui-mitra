@@ -1,0 +1,28 @@
+<div class="card" *ngIf="!auth.isAuthenticated()">
+  <div class="p-fluid formgrid grid">
+    <div class="field col-12">
+      <label for="user">Username</label>
+      <input pInputText id="user" [(ngModel)]="username" />
+    </div>
+    <div class="field col-12">
+      <label for="pass">Password</label>
+      <input pPassword id="pass" [(ngModel)]="password" />
+    </div>
+  </div>
+  <button pButton type="button" label="Login" (click)="login()"></button>
+</div>
+
+<div class="card" *ngIf="auth.isAuthenticated() && settings">
+  <h5>Pool Settings</h5>
+  <div class="p-fluid formgrid grid">
+    <div class="field col-12">
+      <label for="addr">Fee Address</label>
+      <input pInputText id="addr" [(ngModel)]="feeAddress" />
+    </div>
+    <div class="field col-12">
+      <label for="percent">Fee Percent</label>
+      <input type="number" pInputText id="percent" [(ngModel)]="feePercent" />
+    </div>
+  </div>
+  <button pButton type="button" label="Save" (click)="save()"></button>
+</div>
