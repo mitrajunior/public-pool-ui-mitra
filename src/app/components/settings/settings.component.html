@@ -3,3 +3,18 @@
     <p-inputSwitch [(ngModel)]="value" (ngModelChange)="particlesChanged($event)" optionLabel="label"
         optionValue="value"></p-inputSwitch>
 </div>
+
+<div class="card mt-3">
+    <h5>Stratum Server</h5>
+    <div class="p-fluid formgrid grid">
+        <div class="field col-6">
+            <label for="sHost">DDNS/IP</label>
+            <input id="sHost" pInputText [(ngModel)]="stratumHost" />
+        </div>
+        <div class="field col-6">
+            <label for="sPort">Port</label>
+            <input id="sPort" type="number" pInputText [(ngModel)]="stratumPort" />
+        </div>
+    </div>
+    <button pButton type="button" label="Save" (click)="saveStratum()"></button>
+</div>
