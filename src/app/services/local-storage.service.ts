@@ -7,6 +7,7 @@ import { BehaviorSubject, Observable, shareReplay } from 'rxjs';
 export class LocalStorageService {
 
   private PARTICLES = 'PARTICLES';
+  private STRATUM_URL = 'STRATUM_URL';
 
   private _particles$: BehaviorSubject<boolean>;
   public particles$: Observable<boolean>;
@@ -32,6 +33,18 @@ export class LocalStorageService {
   public getParticles(): boolean {
     const result = this.get(this.PARTICLES);
     return result == null || JSON.parse(result)?.particles === true;
+  }
+
+  public getStratumURL(): string | null {
+    return this.get(this.STRATUM_URL);
+  }
+
+  public setStratumURL(url: string) {
+    this.set(this.STRATUM_URL, url);
+  }
+
+  public removeStratumURL() {
+    this.remove(this.STRATUM_URL);
   }
 
   public setParticles(particles: boolean) {
