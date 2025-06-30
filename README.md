@@ -4,7 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Dependencies
 
-Requires [Public-Pool](https://github.com/benjamin-wilson/public-pool) to be running
+Requires [Public-Pool](https://github.com/benjamin-wilson/public-pool) to be running. Node.js 20 or newer is recommended when building the UI.
+
+## Environment configuration
+
+Environment files are located under `src/environments/`. Edit `environment.ts` for local development and `environment.prod.ts` for production builds. Update `API_URL` and `STRATUM_URL` to match your backend configuration. During development, requests to `/api` are proxied using `proxy.config.local.json`.
 
 ## Development server
 
@@ -51,3 +55,7 @@ Available variables:
 * `DOMAIN`: website domain (default: `localhost`)
 * `LOGLEVEL`: loglevel in stdout (default: `INFO`)
 * `LOGFORMAT`: log format in stdout (default: `json`)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
